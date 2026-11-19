@@ -1,0 +1,179 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "github-copilot/claude-sonnet-5.5",
+  "small_model": "github-copilot/claude-haiku-4.5",
+  "default_agent": "build",
+  "experimental": {
+    "todo": true,
+    "subagent_depth": 1
+  },
+  "instructions": [
+    "~/.agents/AGENTS.md"
+  ],
+  "mcp": {
+    "idea": {
+      "type": "remote",
+      "url": "http://127.0.0.1:64342/stream",
+      "enabled": false
+    }
+  },
+  "permission": {
+    "edit": {
+      "*": "allow",
+      ".env": "deny",
+      ".env.*": "deny",
+      "**/.env": "deny",
+      "**/.env.*": "deny",
+      ".env.template": "allow",
+      "**/.env.template": "allow",
+      "**/*credentials*": "deny",
+      "**/*secret*": "deny",
+      "**/*token*": "deny",
+      "~/.ssh/**": "deny",
+      "~/.aws/**": "deny",
+      "~/.azure/**": "deny",
+      "~/.kube/**": "deny"
+    },
+    "read": {
+      "*": "allow",
+      ".env": "deny",
+      ".env.*": "deny",
+      "**/.env": "deny",
+      "**/.env.*": "deny",
+      ".env.template": "allow",
+      "**/.env.template": "allow",
+      "**/*credentials*": "deny",
+      "**/*secret*": "deny",
+      "**/*.pem": "deny",
+      "**/*.key": "deny",
+      "**/*.p12": "deny",
+      "**/*.pfx": "deny",
+      "**/*.jks": "deny",
+      "**/*.keystore": "deny",
+      "**/*token*": "deny",
+      "~/.ssh/**": "deny",
+      "~/.aws/**": "deny",
+      "~/.azure/**": "deny",
+      "~/.kube/**": "deny",
+      ".env.example": "allow"
+    },
+    "grep": {
+      "*": "allow",
+      ".env": "deny",
+      ".env.*": "deny",
+      "**/.env": "deny",
+      "**/.env.*": "deny",
+      ".env.template": "allow",
+      "**/.env.template": "allow",
+      "**/*credentials*": "deny",
+      "**/*secret*": "deny",
+      "**/*.pem": "deny",
+      "**/*.key": "deny",
+      "**/*.p12": "deny",
+      "**/*.pfx": "deny",
+      "**/*.jks": "deny",
+      "**/*.keystore": "deny",
+      "**/*token*": "deny",
+      "~/.ssh/**": "deny",
+      "~/.aws/**": "deny",
+      "~/.azure/**": "deny",
+      "~/.kube/**": "deny"
+    },
+    "glob": "allow",
+    "list": "allow",
+    "external_directory": {
+      "*": "allow",
+      "~/.ssh/**": "deny",
+      "~/.aws/**": "deny",
+      "~/.azure/**": "deny",
+      "~/.kube/**": "deny"
+    },
+    "webfetch": "allow",
+    "bash": {
+      "*": "allow",
+      "rm *": "ask",
+      "curl *": "ask",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git show*": "allow",
+      "git branch": "allow",
+      "git branch -a*": "allow",
+      "git branch -r*": "allow",
+      "git tag": "allow",
+      "git remote*": "allow",
+      "git rev-parse*": "allow",
+      "git ls-files*": "allow",
+      "git ls-tree*": "allow",
+      "git describe*": "allow",
+      "git config --get*": "allow",
+      "git config --list*": "allow",
+      "git push*": "ask",
+      "git checkout *": "ask",
+      "git stash*": "ask",
+      "git branch -d*": "ask",
+      "git branch -D*": "ask",
+      "npm install*": "ask",
+      "npm uninstall*": "ask",
+      "yarn add*": "ask",
+      "yarn remove*": "ask",
+      "pip install*": "ask",
+      "pip uninstall*": "ask",
+      "brew install*": "ask",
+      "brew uninstall*": "ask",
+      "podman *": "ask",
+      "kubectl *": "ask",
+      "kubectl get *": "allow",
+      "kubectl describe *": "allow",
+      "kubectl logs *": "allow",
+      "kubectl top *": "allow",
+      "kubectl config view*": "allow",
+      "kubectl config current-context*": "allow",
+      "kubectl --context * get *": "allow",
+      "kubectl --context * describe *": "allow",
+      "kubectl --context * logs *": "allow",
+      "git stash list*": "allow",
+      "git stash show*": "allow",
+      "rm -f /var/folders/*/T/opencode/*": "allow",
+      "cat *.env*": "deny",
+      "cat **/.env*": "deny",
+      "grep * .env*": "deny",
+      "grep */.env*": "deny",
+      "rg * .env*": "deny",
+      "rg */.env*": "deny",
+      "head * .env*": "deny",
+      "head */.env*": "deny",
+      "tail * .env*": "deny",
+      "tail */.env*": "deny",
+      "sed * .env*": "deny",
+      "sed */.env*": "deny",
+      "awk * .env*": "deny",
+      "awk */.env*": "deny",
+      "less * .env*": "deny",
+      "less */.env*": "deny",
+      "more * .env*": "deny",
+      "more */.env*": "deny"
+    }
+  },
+  "plugin": [
+    "@plannotator/opencode@latest"
+  ],
+  "agent": {
+    "build": {
+      "model": "github-copilot/claude-sonnet-5.5",
+      "variant": "high"
+    },
+    "general": {
+      "model": "github-copilot/claude-sonnet-5.5",
+      "variant": "high"
+    },
+    "explore": {
+      "model": "github-copilot/claude-sonnet-5.5",
+      "variant": "high",
+      "permission": {
+        "edit": "deny"
+      }
+    }
+  },
+  "lsp": true
+}
