@@ -37,9 +37,12 @@ state() {
 }
 
 preflight() {
-  [ "$(uname)" = Darwin ] || die "macOS only"
+  case "$(uname)" in
+    Darwin | Linux) ;;
+    *) die "macOS or Linux (including WSL) only" ;;
+  esac
   [ "$(id -u)" != 0 ] || die "do not run as root"
-  command -v brew >/dev/null || die "install Homebrew first: https://brew.sh"
+  command -v brew >/dev/null || die "install Homebrew first (https://brew.sh) and put brew on PATH"
   local src dst
   while read -r src dst; do
     [ -e "$REPO/$src" ] || die "links.txt: $src does not exist in the repo"

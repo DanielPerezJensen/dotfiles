@@ -8,7 +8,11 @@ setopt MENU_COMPLETE
 unsetopt AUTO_REMOVE_SLASH
 unsetopt LIST_BEEP
 
-alias ls='ls -FaG'
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias ls='ls -FaG'
+else
+  alias ls='ls -Fa --color=auto'
+fi
 
 DISABLE_MAGIC_FUNCTIONS="true"
 plugins=(git)
@@ -19,7 +23,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export PNPM_HOME="$HOME/Library/pnpm"
+if [[ "$OSTYPE" == darwin* ]]; then
+  export PNPM_HOME="$HOME/Library/pnpm"
+else
+  export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
+fi
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
@@ -27,4 +35,6 @@ esac
 
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
 
-[ -x /opt/homebrew/opt/zsh-patina/bin/zsh-patina ] && eval "$(/opt/homebrew/opt/zsh-patina/bin/zsh-patina activate)"
+patina="${HOMEBREW_PREFIX:-/opt/homebrew}/opt/zsh-patina/bin/zsh-patina"
+[ -x "$patina" ] && eval "$("$patina" activate)"
+unset patina

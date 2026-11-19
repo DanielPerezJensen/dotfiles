@@ -24,8 +24,18 @@ cd ~/projects/dotfiles
 ./install.sh --apply    # back up, link, install packages
 ```
 
-Needs macOS and [Homebrew](https://brew.sh). The zsh config expects
-[Oh My Zsh](https://ohmyz.sh) in `~/.oh-my-zsh`, and works without it.
+Works on macOS, Linux and WSL, with [Homebrew](https://brew.sh) on `PATH`. The
+zsh config expects [Oh My Zsh](https://ohmyz.sh) in `~/.oh-my-zsh`, and works
+without it.
+
+On Linux and WSL:
+
+- Add `eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"` to
+  `~/.zprofile`, as the Homebrew installer says, and make zsh your shell with
+  `chsh -s "$(command -v zsh)"`.
+- On WSL, clone the repo inside the Linux file system (for example `~/projects`),
+  not under `/mnt/c`: symlinks into the Windows drive are unreliable.
+- Casks (macOS apps such as draw.io) are skipped.
 
 ## What `--apply` does
 

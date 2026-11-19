@@ -6,4 +6,4 @@ brew "git"
 brew "hunk"
 brew "uv"
 brew "zsh-patina"
-cask "drawio"
+cask "drawio" if OS.mac?
