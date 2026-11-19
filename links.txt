@@ -5,3 +5,4 @@ opencode/cli.json                      .config/opencode/cli.json
 opencode/agent                         .config/opencode/agent
 opencode/commands/orchestrate.md       .config/opencode/commands/orchestrate.md
 apm/apm.yml                            .apm/apm.yml
+zsh/zshrc                              .zshrc

@@ -1,7 +1,8 @@
 # dotfiles
 
-My personal OpenCode and APM setup: agent instructions, skills, agents, and the
-skill packages I install with [APM](https://microsoft.github.io/apm/).
+My personal OpenCode and APM setup: agent instructions, skills, agents, the
+skill packages I install with [APM](https://microsoft.github.io/apm/), my zsh
+config, and the Homebrew packages they need.
 
 The repo is the source of truth. `install.sh` links each path in `links.txt`,
 and each folder in `agents/skills/`, into `$HOME`. An edit in either place is a
@@ -23,7 +24,8 @@ cd ~/projects/dotfiles
 ./install.sh --apply    # back up, link, install packages
 ```
 
-Needs macOS and [Homebrew](https://brew.sh).
+Needs macOS and [Homebrew](https://brew.sh). The zsh config expects
+[Oh My Zsh](https://ohmyz.sh) in `~/.oh-my-zsh`, and works without it.
 
 ## What `--apply` does
 
@@ -47,4 +49,7 @@ Needs macOS and [Homebrew](https://brew.sh).
 - Add MCP servers to `opencode/opencode.json`, not through APM: APM does not
   write through symlinks.
 - Secrets stay out of the repo. Use `{env:NAME}` in `opencode.json`.
+- Put machine-specific or private shell settings (extra `PATH` entries, tokens
+  read from the keychain) in `~/.zshrc.local`. `zsh/zshrc` sources it, and it
+  never goes in the repo.
 - Run `pre-commit install` once. The hook scans commits with gitleaks.
