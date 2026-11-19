@@ -1,0 +1,8 @@
+# repo path                            path under $HOME
+agents/AGENTS.md                       .agents/AGENTS.md
+opencode/opencode.json                 .config/opencode/opencode.json
+opencode/cli.json                      .config/opencode/cli.json
+opencode/agent                         .config/opencode/agent
+opencode/commands/orchestrate.md       .config/opencode/commands/orchestrate.md
+apm/apm.yml                            .apm/apm.yml
+zsh/zshrc                              .zshrc

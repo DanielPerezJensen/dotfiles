@@ -20,5 +20,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Files under agents/skills/third-party/ keep their own licenses (see
-agents/skills/third-party/licenses/).
+Some skills include adapted third-party material under its own license. See
+THIRD_PARTY_NOTICES.md.

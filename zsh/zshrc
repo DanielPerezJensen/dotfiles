@@ -1,0 +1,40 @@
+# Machine-specific and private settings go in ~/.zshrc.local (not in this repo).
+
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="avit"
+
+setopt GLOB_COMPLETE
+setopt MENU_COMPLETE
+unsetopt AUTO_REMOVE_SLASH
+unsetopt LIST_BEEP
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  alias ls='ls -FaG'
+else
+  alias ls='ls -Fa --color=auto'
+fi
+
+DISABLE_MAGIC_FUNCTIONS="true"
+plugins=(git)
+
+[ -f "$ZSH/oh-my-zsh.sh" ] && source "$ZSH/oh-my-zsh.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  export PNPM_HOME="$HOME/Library/pnpm"
+else
+  export PNPM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/pnpm"
+fi
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
+
+patina="${HOMEBREW_PREFIX:-/opt/homebrew}/opt/zsh-patina/bin/zsh-patina"
+[ -x "$patina" ] && eval "$("$patina" activate)"
+unset patina

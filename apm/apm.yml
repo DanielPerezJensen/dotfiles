@@ -1,0 +1,41 @@
+name: dotfiles
+version: 1.0.0
+description: Personal agent skills
+author: Daniel Perez Jensen
+targets:
+  - opencode
+dependencies:
+  apm:
+    - DietrichGebert/ponytail#v5.3.3
+    - git: mattpocock/skills
+      ref: v1.3.2
+      skills:
+        - diagnosing-bugs
+        - grill-me
+        - grilling
+        - handoff
+        - teach
+    - git: obra/superpowers
+      ref: v7.0.2
+      skills:
+        - test-driven-development
+        - verification-before-completion
+        - writing-skills
+    - mattpocock/skills/skills/productivity/writing-for-agents#v1.3.2
+    - GoogleChrome/modern-web-guidance/skills/modern-web-guidance#v1.0.1
+    - github/gh-stack/skills/gh-stack#v0.3.0
+    - grafana/skills/skills/grafana-core/dashboarding#8fb72a52
+    - grafana/skills/skills/grafana-core/promql#8fb72a52
+    - tt-a1i/archify/archify#v3.2.0
+    - git: blader/humanizer
+      ref: v4.0.0
+      skills:
+        - humanizer
+    - vercel-labs/skills/skills/find-skills#57217cf8
+    - Agents365-ai/drawio-skill/skills/drawio-skill#65504951
+    - nicobailon/visual-explainer/plugins/visual-explainer#9d5f880b
+    - backnotprop/plannotator/apps/skills/extra/plannotator-visual-explainer#5f84993b
+    - backnotprop/plannotator/apps/skills/extra/plannotator-setup-goal#5f84993b
+    - backnotprop/plannotator/apps/skills/extra/plannotator-compound#5f84993b
+includes: auto
+scripts: {}

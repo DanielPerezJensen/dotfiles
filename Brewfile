@@ -1,0 +1,9 @@
+tap "anomalyco/tap"
+brew "anomalyco/tap/opencode-v2"
+brew "apm"
+brew "gh"
+brew "git"
+brew "hunk"
+brew "uv"
+brew "zsh-patina"
+cask "drawio" if OS.mac?
