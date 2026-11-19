@@ -10,9 +10,17 @@ dependencies:
     - git: mattpocock/skills
       ref: v1.3.2
       skills:
+        - diagnosing-bugs
         - grill-me
         - grilling
+        - handoff
         - teach
+    - git: obra/superpowers
+      ref: v7.0.2
+      skills:
+        - test-driven-development
+        - verification-before-completion
+        - writing-skills
     - mattpocock/skills/skills/productivity/writing-for-agents#v1.3.2
     - GoogleChrome/modern-web-guidance/skills/modern-web-guidance#v1.0.1
     - github/gh-stack/skills/gh-stack#v0.3.0
